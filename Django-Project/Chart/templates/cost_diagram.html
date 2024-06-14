@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Diagram Form</title>
+</head>
+<body>
+    <h1>Cost Diagram</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="service_option">Service Option:</label>
+        <select name="service_option" id="service_option">
+            {% for option in option_choices %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="cost">Cost:</label>
+        <input type="text" name="cost" id="cost"><br><br>
+        <label for="date_taken">Date Taken:</label>
+        <input type="date" name="date_taken" id="date_taken"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
